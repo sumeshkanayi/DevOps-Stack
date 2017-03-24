@@ -11,7 +11,7 @@ resource aws_instance 'gitlab'{
   key_name="siamol"
   
   provisioner "file" {
-    content     = "bin/setup.sh}"
+    content     = "bin/setup.sh"
     destination = "/tmp/Gitlabsetup.sh"
   }
   
