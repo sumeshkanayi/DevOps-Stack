@@ -13,6 +13,12 @@ resource aws_instance 'gitlab'{
   provisioner "file" {
     content     = "bin/setup.sh"
     destination = "/tmp/Gitlabsetup.sh"
+    
+    connection {
+    type     = "ssh"
+    user     = "ubuntu"
+  private_key= "${file("")}"
+  }
   }
   
   provisioner "remote-exec" {
