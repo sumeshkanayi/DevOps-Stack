@@ -10,4 +10,15 @@ resource aws_instance 'gitlab'{
   security_groups=["sg-191c707e"]
   key_name="siamol"
   
+  provisioner "file" {
+    content     = "bin/setup.sh}"
+    destination = "/tmp/Gitlabsetup.sh"
+  }
+  
+  provisioner "remote-exec" {
+    inline = [
+      "sh /tmp/Gitlabsetup.sh"
+    ]
+  }
+  
   }
